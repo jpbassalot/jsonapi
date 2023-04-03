@@ -107,5 +107,20 @@ class JsonApiTest extends TestCase
         $totalPages = $this->json_api->getTotalPages($files);
         $this->assertIsInt($totalPages);
     }
+
+    public function testSendJson()
+    {
+        $files = $this->json_api->getFiles();
+        $files_data = $this->json_api->getFilesData($files);
+        $json_data = $this->json_api->sendJson($files_data, $files);
+
+        $this->assertIsString($json_data);
+
+        $json_data = json_decode($json_data, true);
+
+        $this->assertIsArray($json_data);
+        $this->assertArrayHasKey('total_pages', $json_data);
+        $this->assertArrayHasKey('total_reports', $json_data);
+    }
 }
 
