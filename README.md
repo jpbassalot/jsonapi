@@ -35,15 +35,27 @@ $dir = 'json';
 
 $reports = new JsonApi($dir, 9);
 
-$files = $reports->getFiles();
+$all_files = $reports->getFiles();
 
 $search = isset($_GET['search']) ? htmlspecialchars($_GET['search'], ENT_QUOTES, 'UTF-8') : '';
 
+/**
+* JSON Example:
+ * {
+ *  "title": "My Title",
+ *  "property1": "Property 1",
+ *  "property2": "Property 2",
+ *  "property3": "Property 3",
+ *  "nested": {
+ *      "property1": "Nested Property 1",
+ *      "property2": "Nested Property 2"
+ * }
+ */
 if ($search) {
-    $data = $reports->searchFilesData($search, ['title', 'property1', 'property2', 'property3'], $files);
+    $result = $reports->searchFilesData($search, ['title', 'property1', 'property2', 'property3', 'nested.property1', 'nested.property2'], $all_files);
 } else {
-    $data = $reports->getFilesData($files);
+    $result = $reports->getFilesData($all_files);
 }
 
-echo $reports->sendJson($data, $files);
+echo $reports->sendJson($result, $all_files);
 ```
