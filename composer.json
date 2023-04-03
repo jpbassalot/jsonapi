@@ -23,10 +23,17 @@
             "Jpbassalot\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Jpbassalot\\Tests\\": "tests/"
+        }
+    },
     "authors": [
         {
             "name": "Joseph C White",
             "email": "joseph.white@kccd.edu"
         }
-    ]
+    ],
+    "minimum-stability": "stable",
+    "prefer-stable": true
 }
