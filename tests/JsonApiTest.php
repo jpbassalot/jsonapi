@@ -105,7 +105,7 @@ class JsonApiTest extends TestCase
     {
         $files = $this->json_api->getFiles();
         $totalPages = $this->json_api->getTotalPages($files);
-        $this->assertIsInt($totalPages);
+        $this->assertEquals(ceil($this->sampleFilesCount / $this->perPage), $totalPages);
     }
 
     public function testSendJson()
