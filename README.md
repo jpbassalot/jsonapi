@@ -3,7 +3,7 @@
 The JSON File API is a simple read-only API that allows you to fetch and serialize data stored in JSON files. This API supports pagination and searching for files based on specific properties.
 
 ## Getting Started
-To use this, you will need to have PHP >= 8.1 installed. Clone the repository and run `composer install` to install the dependencies.
+To use this, you will need to have PHP >= 8.1 installed.
 
 ## Usage
 ### Fetching with Pagination
